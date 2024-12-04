@@ -6,6 +6,8 @@
 5. default settings
 6. cd to the project folder
 7. cursor .
+8. npx shadcn@latest add
+
 
 # Git init
 
