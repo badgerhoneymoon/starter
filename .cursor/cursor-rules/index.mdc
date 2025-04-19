@@ -7,6 +7,9 @@ alwaysApply: true
 
 This document provides an overview of available rules and when to use them.
 
+## Project structure (`project-structure-rules.mdc`)
+**When to use** When creating new files and folders
+
 ## Development Process Rules
 
 ### General Rules (`general-rules.mdc`)
