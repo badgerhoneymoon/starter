@@ -1,7 +1,8 @@
 # NextJS installation
-1. go to Terminal to Python folder
-2. npx shadcn@latest init
-3. name the project
+1. go to Terminal
+2. cd Python
+3. npx shadcn@latest init
+4. name the project
 4. default settings
 5. cd to the project folder
 6. cursor .
