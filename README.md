@@ -24,7 +24,9 @@ This unlinks the project from the original repo.
 ## 🌱 3. Initialize a New Git Repo
 
 git init
+
 git add .
+
 git commit -m "Initial commit from starter"
 
 ⸻
