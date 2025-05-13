@@ -4,10 +4,12 @@
 ## 📁 1. Clone the Starter Template
 
 cd ~/Python
+
 git clone https://github.com/badgerhoneymoon/starter.git my-new-project
+
 cd my-new-project
 
-
+cursor .
 
 ⸻
 
