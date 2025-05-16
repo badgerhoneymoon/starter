@@ -7,6 +7,17 @@ alwaysApply: true
 
 This document describes the standard project structure for new web app projects. Use this as a template for organizing your codebase.
 
+## Guidelines
+- **Mobile-first:** Prioritize mobile UX and responsive design.
+- **No hardcoding:** Use environment variables and config files.
+- **Keep it simple:** Only add folders/files as needed.
+- **Rules:** Place all project rules in `prompts/rules/`.
+- **Sensitive data:** Never commit secrets or credentials.
+- **Modularity:** Extract business logic and heavy computations into `lib/` or `utils/` directories to keep orchestrator files lean.
+- **Helpers & Utilities:** Place standalone functions in `lib/utils/` or `helpers/` directories; avoid inline logic in `page.tsx` or `route.ts`.
+- **Component Modularization:** Store reusable UI components in `components/`; do not define substantial components within `page.tsx` or route files.
+- **Lean Orchestrators:** Ensure `page.tsx` and `route.ts` focus only on routing and layout, delegating logic and UI to dedicated modules.
+
 ## Root Directory
 
 ```
@@ -44,14 +55,3 @@ PROJECT_ROOT/
 ├── vitest.config.ts    # Vitest config (if used)
 └── ...                 # Other project-specific files
 ```
-
-## Guidelines
-- **Mobile-first:** Prioritize mobile UX and responsive design.
-- **No hardcoding:** Use environment variables and config files.
-- **Keep it simple:** Only add folders/files as needed.
-- **Rules:** Place all project rules in `prompts/rules/`.
-- **Sensitive data:** Never commit secrets or credentials.
-
----
-
-Copy this file to any new project as `prompts/rules/project-structure.md` for reference. 
