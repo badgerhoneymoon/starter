@@ -47,7 +47,7 @@ Go to http://localhost:3000 to view your project.
 
 # NextJS installation (WHEN NOT GIT CLONING)
 1. go to Terminal
-2. cd Python
+2. cd [code projects folder]
 3. npx shadcn@latest init
 4. name the project
 4. default settings
