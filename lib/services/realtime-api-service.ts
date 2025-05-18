@@ -133,14 +133,17 @@ export class VoiceService extends EventEmitter {
       await this.peerConnection.setLocalDescription(offer);
 
       this.emit('debug', 'Sending offer to OpenAI...');
-      const response = await fetch('https://api.openai.com/v1/realtime?model=gpt-4o-mini-realtime-preview-2024-12-17', {
-        method: 'POST',
-        body: offer.sdp,
-        headers: {
-          'Authorization': `Bearer ${this.openAiKey}`,
-          'Content-Type': 'application/sdp'
-        },
-      });
+      // Proxy the SDP offer through our Next.js API route to avoid CORS and hide API key
+      const response = await fetch(
+        `/api/open-ai-realtime?model=${encodeURIComponent('gpt-4o-mini-realtime-preview-2024-12-17')}`,
+        {
+          method: 'POST',
+          body: offer.sdp,
+          headers: {
+            'Content-Type': 'application/sdp'
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`Failed to connect to OpenAI: ${response.statusText}`);
