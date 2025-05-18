@@ -256,17 +256,21 @@ export class VoiceService extends EventEmitter {
    * @param call_id - The unique identifier of the function call this output corresponds to.
    * @param output - The result data from the function execution.
    */
-  private _sendFunctionOutput(call_id: string | undefined, output: any) {
+  private _sendFunctionOutput(call_id: string | undefined, output: Record<string, string>) {
+    // 1) Send output item
     this._sendEvent({
       type: 'conversation.item.create',
       item: {
         type: 'function_call_output',
-        call_id, // Link this output to the specific function call
-        output: JSON.stringify(output) // Stringify the output data
+        call_id,
+        output: JSON.stringify(output)
       }
     });
+    // 2) Immediately trigger model to continue speaking based on the tool result
+    this._sendEvent({
+      type: 'response.create'
+    });
   }
-
   /**
    * Handles incoming function call requests from the assistant.
    * Determines which local function to execute based on the name,
